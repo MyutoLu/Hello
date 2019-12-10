@@ -43,3 +43,13 @@ build:
         name: go test
         code: |
           go test ./...
+
+deploy: 
+  steps:
+    - internal/docker-push:
+        username: $USERNAME
+        password: $PASSWORD 
+        cmd: /pipeline/source/magpie
+        tag: latest
+        repository: myutolu/hello
+
